@@ -1,10 +1,10 @@
 @import 'variables';
+@import 'mixins';
 
 .home__section {
 	transform: translateX(0px);
-	transition: transform 1s;
+	transition: transform .5s;
 	position: relative;
-	height: 100vh;
 	background-color: $color-p;
 
 	.home__wrapper {
@@ -12,7 +12,7 @@
 
 		img {
 			display: block;
-			width:600px;
+			width:330px;
 			max-width: 100%;
 			height: auto;
 			margin: auto;
@@ -21,6 +21,10 @@
 			left: 0;
 			bottom: 0;
 			right: 0;
+
+			@include tablet() {
+				width:600px;
+			}
 		}
 	}
 

@@ -3,11 +3,11 @@
 
 nav.nav--open {
   left: 0;
-  transition: left 1s;
+  transition: left .5s;
 }
 
- nav {
-  transition: left 1s;
+nav {
+  transition: left .5s;
   position: fixed;
   top: 0;
   left: -300px;
@@ -19,12 +19,19 @@ nav.nav--open {
   font-size: 30px;
 
   ul {
+    left: 0;
+    right: 0;
+    position: absolute;
     margin-top: 80px;
-    margin-left: 30px;
+    padding: 0;
   }
 
   li {
-    margin: 10px 0px;
+    font-family: 'UniversCn';
+    width: 100%;
+    cursor: pointer;
+    margin: 10px 0;
     list-style-type: none;
+    text-indent: 25%;
   }
 }

@@ -10,14 +10,14 @@ export class MenuComponent implements OnInit {
   isOpen: boolean
 
   constructor(
-    private menu : MenuService
+    public menu : MenuService
   ) { }
 
   ngOnInit() {
   }
 
   onBurgerClicked() {
-    this.isOpen = !this.isOpen;
+    this.menu.isBurgerClosed = !this.menu.isBurgerClosed;
     this.menu.isMenuClosed = !this.menu.isMenuClosed;
   }
 }

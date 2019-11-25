@@ -20,3 +20,10 @@ font-style: normal;
 font-weight: normal;
 src: local('Univers LT Std 57 Condensed'), url('UniversLTStd-Cn.woff') format('woff');
 }
+
+@font-face {
+font-family: 'UniversLg';
+font-style: normal;
+font-weight: normal;
+src: local('Univers LT Std 45 Light'), url('UniversLTStd-Light.woff') format('woff');
+}
