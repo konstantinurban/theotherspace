@@ -1,0 +1,27 @@
+@import 'mixins';
+@import 'variables';
+
+.about__section {
+	transform: translateX(0px);
+	transition: transform 1s;
+	height: 100vh;
+	width: 100vw;
+	background-color: #333345;
+	position: relative;
+
+	.about__text {
+		position: absolute;
+		margin: auto;
+		left: 0;
+		right: 0;
+		top: 20%;
+		width: 820px;
+
+		p {
+			font-family: 'UniversCn';
+			font-size: 22px;
+			color: #fff;
+			text-align: center;
+		}
+	}
+}
