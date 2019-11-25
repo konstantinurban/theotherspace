@@ -10,7 +10,7 @@ import { MenuService } from '../_services/menu.service';
 export class CafeComponent implements OnInit {
 
   constructor(
-    private menu : MenuService
+    public menu : MenuService
   ) { }
 
   ngOnInit() {

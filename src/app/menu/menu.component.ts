@@ -10,7 +10,7 @@ export class MenuComponent implements OnInit {
   isOpen: boolean
 
   constructor(
-    private menu : MenuService
+    public menu : MenuService
   ) { }
 
   ngOnInit() {
