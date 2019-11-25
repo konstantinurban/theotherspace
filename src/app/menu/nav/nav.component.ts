@@ -11,7 +11,7 @@ import * as $ from 'jquery';
 export class NavComponent implements OnInit {
 
   constructor(
-    private menu: MenuService
+    public menu: MenuService
   ) { }
 
   ngOnInit() {
