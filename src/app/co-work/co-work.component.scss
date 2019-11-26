@@ -4,7 +4,7 @@
 .co-work__section {
 	transform: translateX(0px);
 	transition: transform 0.5s;
-	background-image: url("../../assets/img_co-work_mob.jp2");
+	background-image: url("../../assets/img_co-work.jpeg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	text-align: center;
@@ -12,9 +12,6 @@
 	justify-content: left;
 	align-items: center;
 	position: relative;
-	@include desktop() {
-		background-image: url("../../assets/img_co-work.jpeg");
-	}
 
 	&:after {
 		content: '';
