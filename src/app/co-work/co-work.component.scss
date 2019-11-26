@@ -1,0 +1,40 @@
+@import 'mixins';
+@import 'variables';
+
+.co-work__section {
+	transform: translateX(0px);
+	transition: transform 0.5s;
+	background-image: url("../../assets/img_co-work_mob.jp2");
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	position: relative;
+	@include desktop() {
+		background-image: url("../../assets/img_co-work.jpeg");
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $color-p-rgba;
+		@include breakpoint(700px) {
+			right: 50%;
+		}
+	}
+
+	.co-work__text {
+		width: 100%;
+		z-index: 100;
+		@include breakpoint(700px) {
+			max-width: 50%;
+		}
+	}
+}

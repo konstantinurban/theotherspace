@@ -1,0 +1,73 @@
+@import 'variables';
+@import 'mixins';
+$burgerWidth: 40px;
+$burgerBarHeight: 1px;
+
+.burger-menu {
+  width: 42px;
+  height: 25px;
+  padding: 5px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 200;
+  top: 15px;
+  left: 15px;
+  @include desktop() {
+    top: 30px;
+    left: 30px;
+  }
+
+  .burger-container {
+    position: relative;
+
+    .burger-inner {
+      position: absolute;
+      width: $burgerWidth;
+      height: 3px;
+      left: 0;
+      top: 0;
+      transition: border-color 0.2s ease-in 0.2s;
+      background-color: #FFF;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 10px;
+        width: $burgerWidth;
+        height: 3px;
+        transition: top 0.2s ease-in 0.3s, transform ease-in 0.2s;
+        background-color: #FFF;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        top: 20px;
+        width: $burgerWidth;
+        height: 3px;
+        transition: top 0.2s ease-in 0.3s, transform ease-in 0.2s;
+        background-color: #FFF;
+      }
+    }
+  }
+
+  &.active .burger-container .burger-inner {
+    border-color: transparent;
+    background-color: unset;
+    transition: border-color ease-in 0.1s;
+  }
+
+  &.active .burger-container .burger-inner::before {
+    top: -$burgerBarHeight;
+    transform: rotate(-45deg);
+    transition: top ease-out 0.2s, transform 0.2s ease-out 0.3s;
+    background-color: $color-p;
+  }
+
+  &.active .burger-container .burger-inner::after {
+    top: -$burgerBarHeight;
+    transform: rotate(45deg);
+    transition: top ease-out 0.2s, transform 0.2s ease-out 0.3s;
+    background-color: $color-p;
+  }
+}
