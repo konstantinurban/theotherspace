@@ -29,7 +29,7 @@ import { NavComponent } from './menu/nav/nav.component';
     ContactComponent,
     AboutComponent,
     MenuComponent,
-    NavComponent
+    NavComponent,
   ],
   imports: [
     BrowserModule,
