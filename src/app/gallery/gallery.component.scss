@@ -4,9 +4,6 @@
 .gallery__section {
 	transform: translateX(0px);
 	transition: transform 0.5s;
-	background-image: url("../../assets/img_gallery.jpeg");
-	background-size: cover;
-	background-repeat: no-repeat;
 	text-align: center;
 	display: flex;
 	justify-content: right;
@@ -25,6 +22,34 @@
 		@include breakpoint(700px) {
 			left: 50%;
 		}
+	}
+
+	figure {
+		display: block;
+		max-width: 100%;
+		margin: 0;
+		box-sizing: border-box;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		position: absolute;
+	}
+
+	img {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		max-width: 100%;
+		display: block;
+		margin: 0;
+	}
+
+	.gallery__description {
+		max-width: 400px;
+		margin-left: auto;
+		margin-right: auto;
+		font-style: italic;
 	}
 
 	.gallery__text {
