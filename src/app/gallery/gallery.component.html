@@ -1,13 +1,21 @@
-<section class="gallery__section" [class.menu--open]="menu.isMenuClosed" *ngFor="let exhibit of exhibits">
-	<figure>
-		<img src="{{ exhibit.fields.photo.fields.file.url }}" alt="{{ exhibit.fields.photo.fields.title }}">
-	</figure>
-	<div class="gallery__text">
-		<h2 class="gallery__heading">Gallery</h2>
-		<p class="gallery__title">{{ exhibit.fields.title }}</p>
-		<h3 class="gallery__artist">{{ exhibit.fields.artist }}</h3>
-		<p class="gallery_onview">On View</p>
-		<p class="gallery__dates">{{ exhibit.fields.date }}</p>
-		<!-- <p class="gallery__description" *ngIf="exhibit.fields.description.content[0].content[0].value">{{ exhibit.fields.description.content[0].content[0].value }}</p> -->
+<section class="gallery__section" [class.menu--open]="menu.isMenuClosed">
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide" *ngFor="let exhibit of exhibits">
+				<figure>
+					<img data-src="{{ exhibit.fields.photo.fields.file.url }}" alt="{{ exhibit.fields.photo.fields.title }}" class="swiper-lazy">
+				</figure>
+				<div class="gallery__text">
+					<h2 class="gallery__heading">Gallery</h2>
+					<p class="gallery__title">{{ exhibit.fields.title }}</p>
+					<h3 class="gallery__artist">{{ exhibit.fields.artist }}</h3>
+					<p class="gallery_onview">On View</p>
+					<p class="gallery__dates">{{ exhibit.fields.date }}</p>
+					<p class="gallery__description" *ngIf="exhibit.fields.description">{{ exhibit.fields.description }}</p>
+				</div>
+			</div>
+		</div>
+		<div class="swiper-button-next"></div>
+		<div class="swiper-pagination"></div>
 	</div>
 </section>
