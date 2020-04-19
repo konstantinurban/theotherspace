@@ -1,5 +1,7 @@
-import { Component, AfterViewInit, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ViewEncapsulation, HostListener } from '@angular/core';
+import { IsDesktopService } from './_services/is-desktop.service';
 declare let Swiper: any;
+declare let WOW: any;
 
 @Component({
   selector: 'app-root',
@@ -10,18 +12,38 @@ declare let Swiper: any;
 })
 export class AppComponent implements OnInit {
   title = 'theotherspace';
+  isDesktop: boolean;
 
-  ngOnInit() { }
+  constructor(
+    public isDesktopService: IsDesktopService
+  ) {
+    new WOW().init();
+  }
 
-  ngAfterViewInit() {
+  swiperInitialise() {
     new Swiper('.main-swiper-container', {
-      loop: true,
+      loop: false,
       direction: 'vertical',
       pagination: '.main-swiper-pagination',
       paginationClickable: true,
-      speed: 1000,
+      speed: 800,
       slidesPerView: 1,
-      mousewheel: true
+      mousewheelControl: true,
+      keyboardControl: true
     });
+  }
+
+  ngOnInit() {
+    this.isDesktop = this.isDesktopService.checkIfDesktop();
+  }
+
+  ngAfterViewInit() {
+    this.swiperInitialise();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.swiperInitialise();
+    this.isDesktop = this.isDesktopService.checkIfDesktop();
   }
 }

@@ -15,12 +15,12 @@ export class GalleryComponent implements OnInit {
   constructor(
     public menu: MenuService,
     private contentfulService: ContentfulService
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.contentfulService.getExhibits()
-      .then(exhibits => this.exhibits = exhibits)
-      .then(exhibits => console.log('Array of Exhibits:', this.exhibits));
+      .then(exhibits => this.exhibits = exhibits);
   }
 
   ngAfterViewInit() {
@@ -30,11 +30,13 @@ export class GalleryComponent implements OnInit {
         nextButton: '.swiper-button-next',
         direction: 'horizontal',
         loop: true,
+        speed: 700,
         pagination: '.gallery-swiper-pagination',
         paginationClickable: true,
         paginationType: 'fraction',
         preloadImages: false,
-        lazy: true
+        lazy: true,
+        keyboardControl: true
       });
     }, 3000);
   }

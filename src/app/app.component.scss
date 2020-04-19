@@ -15,6 +15,10 @@
     left: 20px;
     right: auto;
   }
+
+  .slide-name {
+    transform: rotate(-90deg);
+  }
 }
 
 .slide-contact,
@@ -23,6 +27,59 @@
   .main-swiper-pagination {
     right: 20px;
     left: auto;
+  }
+
+  .slide-name {
+    transform: rotate(90deg);
+  }
+}
+
+.slide-name {
+  margin: 0;
+	position: absolute;
+}
+
+.slide-cafe,
+.slide-about,
+.slide-contact {
+  .slide-name {
+    top: 62%;
+  }
+}
+
+/*Section labels right*/
+.slide-gallery,
+.slide-contact {
+  .slide-name {
+    right: 0px;
+  }
+}
+
+.slide-cafe {
+  .slide-name {
+    right: 10px;
+  }
+}
+
+/*Section labels left*/
+.slide-cowork {
+  .slide-name {
+    left : 0px;
+  }
+}
+
+.slide-about,
+.slide-home {
+  .slide-name {
+    left: 7px;
+  }
+}
+
+.slide-home,
+.slide-gallery,
+.slide-cowork {
+  .slide-name {
+    top: 32%;
   }
 }
 

@@ -3,31 +3,42 @@
 
 .about__section {
 	transform: translateX(0px);
-	transition: transform .5s;
+	transition: transform 0.5s;
 	background-color: #333345;
 	position: relative;
 
+	h2 {
+		padding-top: 20px;
+	}
+
 	.about__text {
+		width: 100%;
+		max-width: 90%;
 		position: absolute;
 		margin: auto;
 		left: 0;
 		right: 0;
-		top: 15%;
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		padding-left: 20px;
 		padding-right: 20px;
-		@include desktop() {
-			width: 820px;
-			top: 20%;
-		}
+		height: 81vh;
+		padding: 0;
+		top: 20px;
 
 		p {
-			font-size: 4vw;
 			color: #fff;
 			text-align: center;
-
-			@include desktop() {
-				font-size: 22px;
-			}
+		}
+	}
+	@include desktop() {
+		.about__text {
+			font-size: 22px;
+			max-width: 70%;
+			top: 0;
+			height: auto;
 		}
 	}
 }

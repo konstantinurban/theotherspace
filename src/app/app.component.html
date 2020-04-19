@@ -1,31 +1,45 @@
 <app-menu></app-menu>
 <app-nav></app-nav>
-<section class="body-wrapper swiper-container main-swiper-container">
+<section class="body-desktop swiper-container main-swiper-container" *ngIf="isDesktop">
   <div class="swiper-wrapper">
     <div class="swiper-slide slide-home">
       <app-home></app-home>
-      <div class="main-swiper-pagination swiper-pagination"></div>
+      <p class="slide-name">Home</p>
+      <div class="main-swiper-pagination swiper-pagination wow fadeInLeft"></div>
     </div>
     <div class="swiper-slide slide-gallery">
       <app-gallery></app-gallery>
+      <p class="slide-name">Gallery</p>
       <div class="main-swiper-pagination swiper-pagination"></div>
     </div>
     <div class="swiper-slide slide-cowork">
       <app-co-work></app-co-work>
+      <p class="slide-name">Co-Work</p>
       <div class="main-swiper-pagination swiper-pagination"></div>
     </div>
     <div class="swiper-slide slide-cafe">
       <app-cafe></app-cafe>
+      <p class="slide-name">Cafe</p>
       <div class="main-swiper-pagination swiper-pagination"></div>
     </div>
     <div class="swiper-slide slide-about">
       <app-about></app-about>
+      <p class="slide-name">About</p>
       <div class="main-swiper-pagination swiper-pagination"></div>
     </div>
     <div class="swiper-slide slide-contact">
       <app-contact></app-contact>
+      <p class="slide-name">Contact</p>
       <div class="main-swiper-pagination swiper-pagination"></div>
     </div>
   </div>
+</section>
+<section class="body-mobile"  *ngIf="!isDesktop">
+  <app-home></app-home>
+  <app-gallery></app-gallery>
+  <app-co-work></app-co-work>
+  <app-cafe></app-cafe>
+  <app-about></app-about>
+  <app-contact></app-contact>
 </section>
 <app-footer></app-footer>

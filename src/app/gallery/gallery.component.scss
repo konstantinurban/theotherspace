@@ -22,10 +22,14 @@
 		display: none;
 		@include tablet() {
 			display: block;
-			right: 25%;
+			right: 16%;
 			top: auto;
-			bottom: 10%;
+			bottom: 3%;
 		}
+	}
+
+	.swiper-pagination-fraction {
+		bottom: 40px;
 	}
 
 	.swiper-pagination {
