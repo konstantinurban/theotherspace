@@ -25,12 +25,12 @@ export class GalleryComponent implements OnInit {
 
   ngAfterViewInit() {
     setTimeout(function() {
-      new Swiper('.swiper-container', {
+      new Swiper('.gallery-swiper-container', {
         slidesPerView: 1,
         nextButton: '.swiper-button-next',
         direction: 'horizontal',
         loop: true,
-        pagination: '.swiper-pagination',
+        pagination: '.gallery-swiper-pagination',
         paginationClickable: true,
         paginationType: 'fraction',
         preloadImages: false,

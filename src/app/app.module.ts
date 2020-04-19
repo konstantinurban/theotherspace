@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,8 +12,6 @@ import { CafeComponent } from './cafe/cafe.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { MenuComponent } from './menu/menu.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NavComponent } from './menu/nav/nav.component';
 
 
@@ -34,10 +31,7 @@ import { NavComponent } from './menu/nav/nav.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    FormsModule,
-    MatCheckboxModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

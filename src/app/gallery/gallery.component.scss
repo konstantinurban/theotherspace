@@ -22,6 +22,9 @@
 		display: none;
 		@include tablet() {
 			display: block;
+			right: 25%;
+			top: auto;
+			bottom: 10%;
 		}
 	}
 

@@ -1,8 +1,16 @@
 @import 'variables';
+// footer {
+//   width: 100%;
+//   text-align: center;
+//   background-color: $color-p;
+//   padding: 10px;
+// }
 
 footer {
-  width: 100%;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  background: transparent;
   text-align: center;
-  background-color: $color-p;
-  padding: 10px;
+  width: 100%;
 }

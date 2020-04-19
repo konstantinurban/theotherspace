@@ -1,5 +1,5 @@
 <section class="gallery__section" [class.menu--open]="menu.isMenuClosed">
-	<div class="swiper-container">
+	<div class="swiper-container gallery-swiper-container">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide" *ngFor="let exhibit of exhibits">
 				<figure>
@@ -16,6 +16,6 @@
 			</div>
 		</div>
 		<div class="swiper-button-next"></div>
-		<div class="swiper-pagination"></div>
+		<div class="swiper-pagination gallery-swiper-pagination"></div>
 	</div>
 </section>

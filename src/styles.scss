@@ -22,18 +22,28 @@ h2 {
 	font-size: 35px;
 }
 
-section {
-	border-bottom: solid 5px #fff;
-	min-height: 100vh;
-	width: 100%;
-}
+// section {
+// 	border-bottom: solid 5px #fff;
+// 	min-height: 100vh;
+// 	width: 100%;
+// }
 
-section.contact__section.menu--open,
-section.gallery__section.menu--open,
-section.co-work__section.menu--open,
-section.cafe__section.menu--open,
-section.about__section.menu--open,
-section.home__section.menu--open {
-	transform: translateX(300px);
-	transition: transform .5s;
+// section.contact__section.menu--open,
+// section.gallery__section.menu--open,
+// section.co-work__section.menu--open,
+// section.cafe__section.menu--open,
+// section.about__section.menu--open,
+// section.home__section.menu--open {
+// 	transform: translateX(300px);
+// 	transition: transform .5s;
+// }
+
+
+section.contact__section,
+section.co-work__section,
+section.about__section,
+section.gallery__section,
+section.home__section,
+section.cafe__section {
+	height: 100%;
 }
