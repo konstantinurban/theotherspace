@@ -15,13 +15,7 @@ export class GalleryComponent implements OnInit {
   constructor(
     public menu: MenuService,
     private contentfulService: ContentfulService
-  ) {
-    new Swiper('.swiper-container', {
-      // Optional parameters
-      direction: 'horizontal',
-      loop: true
-    });
-  }
+  ) {}
 
   ngOnInit() {
     this.contentfulService.getExhibits()
