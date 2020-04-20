@@ -28,6 +28,7 @@ export class GalleryComponent implements OnInit {
       new Swiper('.gallery-swiper-container', {
         slidesPerView: 1,
         nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
         direction: 'horizontal',
         loop: true,
         speed: 700,

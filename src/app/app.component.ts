@@ -13,6 +13,7 @@ declare let WOW: any;
 export class AppComponent implements OnInit {
   title = 'theotherspace';
   isDesktop: boolean;
+  arrowsDisplayed: boolean = true;
 
   constructor(
     public isDesktopService: IsDesktopService
@@ -34,6 +35,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.arrowsDisplayed = false;
+    }, 2700);
     this.isDesktop = this.isDesktopService.checkIfDesktop();
   }
 

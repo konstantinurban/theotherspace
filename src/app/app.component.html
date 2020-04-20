@@ -6,6 +6,15 @@
       <app-home></app-home>
       <p class="slide-name">Home</p>
       <div class="main-swiper-pagination swiper-pagination wow fadeInLeft"></div>
+      <div class="arrow-keys wow fadeIn" [ngClass]="{ 'visible' : arrowsDisplayed }">
+        <p>Keyboard Navigation</p>
+        <ul>
+          <li>&#8593;</li>
+          <li>&#8592;</li>
+          <li>&#8595;</li>
+          <li>&#8594;</li>
+        </ul>
+      </div>
     </div>
     <div class="swiper-slide slide-gallery">
       <app-gallery></app-gallery>
@@ -34,7 +43,7 @@
     </div>
   </div>
 </section>
-<section class="body-mobile"  *ngIf="!isDesktop">
+<section class="body-mobile" *ngIf="!isDesktop">
   <app-home></app-home>
   <app-gallery></app-gallery>
   <app-co-work></app-co-work>
