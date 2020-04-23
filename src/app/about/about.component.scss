@@ -2,43 +2,40 @@
 @import 'variables';
 
 .about__section {
+	display: flex;
+	flex-direction: column;
 	transform: translateX(0px);
 	transition: transform 0.5s;
 	background-color: #333345;
 	position: relative;
 
 	h2 {
-		padding-top: 20px;
+		padding-top: 30px;
 	}
 
 	.about__text {
 		width: 100%;
-		max-width: 90%;
-		position: absolute;
+		height: 100%;
+		border: solid 2px;
+		padding: 20px;
 		margin: auto;
-		left: 0;
-		right: 0;
-		bottom: 0;
 		display: flex;
+		max-height: 70%;
+		max-width: 77%;
 		flex-direction: column;
-		justify-content: center;
-		padding-left: 20px;
-		padding-right: 20px;
-		height: 81vh;
-		padding: 0;
-		top: 20px;
+		justify-content: space-between;
+		font-size: 2.4vh;
 
 		p {
 			color: #fff;
 			text-align: center;
 		}
 	}
-	@include desktop() {
+	@include breakpoint(800px) {
 		.about__text {
-			font-size: 22px;
+			max-height: 72%;
 			max-width: 70%;
-			top: 0;
-			height: auto;
+			font-size: 22px;
 		}
 	}
 }
