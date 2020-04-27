@@ -7,6 +7,11 @@
 	position: relative;
 	background-color: $color-p;
 
+	.home__video--wrapper {
+		height: 100%;
+		width: 100%;
+	}
+
 	video {
 		height: 100%;
 		width: 100%;
@@ -19,33 +24,74 @@
 		opacity: 1;
 	}
 
-	button.video-playing {
+	button.play-button.video-playing {
 		opacity: 0;
 		visibility: hidden;
 	}
 
-	button.button-shown {
+	button.play-button.button-shown {
 		opacity: 1;
 		visibility: visible;
 	}
 
-	button {
-		position: absolute;
+	button.play-button {
+		max-width: 150px;
 		margin: auto;
-		bottom: 30%;
-		width: 100%;
-		max-width: 230px;
-		border: solid 1px #fff;
 		left: 0;
 		right: 0;
-		cursor: pointer;
-		font-size: 24px;
-		padding: 7px;
-		background: none;
-		color: #fff;
+		bottom: 20%;
+		padding: 1em 1.5em;
+		outline: none;
 		opacity: 0;
 		visibility: hidden;
 		transition: opacity 0.3s;
+
+		&:hover:after,
+		&:hover:before {
+			width: 100%;
+			height: 100%;
+		}
+
+		&:after,
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 20%;
+			height: 20%;
+			border: 2px solid;
+			transition: all 0.6s ease;
+			border-radius: 2px;
+		}
+
+		&:after {
+			bottom: 0;
+			right: 0;
+			border-top-color: transparent;
+			border-left-color: transparent;
+			border-bottom-color: #fff;
+			border-right-color: #fff;
+		}
+
+		&:before {
+			top: 0;
+			left: 0;
+			border-bottom-color: transparent;
+			border-right-color: transparent;
+			border-top-color: #fff;
+			border-left-color: #fff;
+		}
+	}
+
+	button.play-button,
+	button.skip-button {
+		position: absolute;
+		width: 100%;
+		cursor: pointer;
+		border: none;
+		background-color: transparent;
+		font-size: 18px;
+		color: #fff;
 	}
 
 	.home__wrapper {
@@ -64,24 +110,15 @@
 			bottom: 0;
 			right: 0;
 			display: block;
-			transform: scale(1);
-			-webkit-transform: scale(1);/* Saf3.1+, Chrome */
--moz-transform: scale(1); /* FF3.5+ */
--ms-transform: scale(1); /* IE9 */
--o-transform: scale(1); /* Opera 10.5+ */
-			transition: top 0.8s ease-in, transform 0.8s ease-in;
+			opacity: 1;
+			transition: opacity 0.4s;
 			@include tablet() {
 				width: 600px;
 			}
 		}
 
 		img.video-playing {
-			transform: scale(3);
-			top: 0;
-			-webkit-transform: scale(.3);/* Saf3.1+, Chrome */
--moz-transform: scale(.3); /* FF3.5+ */
--ms-transform: scale(.3); /* IE9 */
--o-transform: scale(.3); /* Opera 10.5+ */
+			opacity: 0;
 		}
 	}
 
@@ -104,4 +141,164 @@
 	h2 {
 		font-size: 50px;
 	}
+}
+
+button.skip-button.video-playing {
+	opacity: 1;
+	visibility: visible;
+}
+/*Skip icon SVG and annimation*/
+$ease: cubic-bezier(.2,1,.3,1);
+
+button.skip-button {
+	max-width: 50px;
+	top: 20px;
+	right: 75px;
+	left: auto;
+	opacity: 0;
+	visibility: hidden;
+	opacity: transition 0.3s;
+
+	&:after {
+		content: 'Skip';
+		display: block;
+		font-size: 15px;
+		position: absolute;
+		top: 2px;
+		left: 8px;
+		color: #fff;
+		opacity: 0;
+		transition: opacity .6s;
+		visibility: hidden;
+	}
+
+	svg {
+		width: 25px;
+		height: auto;
+		margin: 0 2rem;
+		cursor: pointer;
+		overflow: visible;
+
+		path,
+		polygon {
+			transition: all 0.5s $ease;
+			fill: #fff;
+		}
+	}
+
+	&:hover:after {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&:hover path,
+	&:hover polygon {
+		transition: all 1s $ease;
+	}
+
+	&:hover .arrow {
+		animation: arrow-anim 2.5s $ease infinite;
+	}
+
+	&:hover .arrow-fixed {
+		animation: arrow-fixed-anim 2.5s $ease infinite;
+	}
+}
+@keyframes arrow-anim {
+	0% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	5% {
+		transform: translateX(-0.1rem);
+	}
+
+	100% {
+		transform: translateX(1rem);
+		opacity: 0;
+	}
+}
+@keyframes arrow-fixed-anim {
+	5% {
+		opacity: 0;
+	}
+
+	20% {
+		opacity: 0.4;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+/* Animated Mute */
+.mute-button.video-playing {
+	opacity: 1;
+	visibility: visible;
+}
+
+.mute-button {
+	cursor: pointer;
+	z-index: 1;
+	height: 30px;
+	width: 30px;
+	position: absolute;
+	right: 15px;
+	top: 17px;
+	overflow: hidden;
+	display: inline-block;
+	opacity: 0;
+	transition: opacity .3s;
+	visibility: hidden;
+
+	span {
+		display: block;
+		width: 8px;
+		height: 8px;
+		background: #fff;
+		margin: 11px 0 0 2px;
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent #fff transparent transparent;
+			border-width: 10px 14px 10px 15px;
+			left: -13px;
+			top: 5px;
+		}
+
+		&:before {
+			transform: rotate(45deg);
+			border-radius: 0 50px 0 0;
+			content: '';
+			position: absolute;
+			width: 5px;
+			height: 5px;
+			border-style: double;
+			border-color: #fff;
+			border-width: 7px 7px 0 0;
+			left: 18px;
+			top: 9px;
+			transition: all 0.2s ease-out;
+		}
+	}
+
+	&:hover {
+
+		span:before {
+			transform: scale(.8) translate(-3px, 0) rotate(42deg);
+    }
+	}
+
+  &.mute {
+    span:before {
+			transform: scale(.5) translate(-15px, 0) rotate(36deg);
+      opacity: 0;
+    }
+  }
 }

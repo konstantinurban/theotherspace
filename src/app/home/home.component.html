@@ -1,9 +1,23 @@
 <section id="home" class="home__section" [class.menu--open]="menu.isMenuClosed">
-	<video #introVideo [ngClass]="{'video-playing' : isPlaying }" (ended)="videoEnded()" (canplay)="showPlay()" playsinline>
-		<source src="assets/The-Other-Space-Timeless-Final.mp4" type="video/mp4">
-		Sorry, your browser doesn't support embedded videos.
-	</video>
-	<button [ngClass]="{'video-playing' : isPlaying, 'button-shown' : buttonShown }" type="button" name="button" (click)="playVideo()">Experience</button>
+	<div class="home__video--wrapper" *ngIf="isDesktop">
+		<a class="mute-button" [ngClass]="{'mute' : isMuted, 'video-playing' : isPlaying }" (click)="unmuteVideo()"><span></span></a>
+		<video height="50px" width="50px" #introVideo [ngClass]="{'video-playing' : isPlaying }" (ended)="videoEnded()" (loadeddata)="showPlay()" playsinline>
+			<source src="assets/The-Other-Space-Timeless-Final.mp4" type="video/mp4">
+			Sorry, your browser doesn't support embedded videos.
+		</video>
+		<button class="play-button" [ngClass]="{'video-playing' : isPlaying, 'button-shown' : buttonShown }" type="button" name="button" (click)="playVideo()">Experience</button>
+		<button class="skip-button" [ngClass]="{'video-playing' : isPlaying }" (click)="endVideo()">
+			<svg width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<g>
+					<polygon class="arrow" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+					<polygon class="arrow-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+					<path
+						d="M-4.58892184e-16,0.56157424 L-4.58892184e-16,16.1929159 L9.708,8.33860465 L-1.64313008e-15,0.56157424 L-4.58892184e-16,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z">
+					</path>
+				</g>
+			</svg>
+		</button>
+	</div>
 	<div class="home__wrapper">
 		<h1>THE OTHER SPACE</h1>
 		<h2>illiterati art & co-work</h2>
