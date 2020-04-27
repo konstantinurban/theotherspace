@@ -1,7 +1,12 @@
 <section id="home" class="home__section" [class.menu--open]="menu.isMenuClosed">
+	<video #introVideo [ngClass]="{'video-playing' : isPlaying }" (ended)="videoEnded()" (canplay)="showPlay()" playsinline>
+		<source src="assets/The-Other-Space-Timeless-Final.mp4" type="video/mp4">
+		Sorry, your browser doesn't support embedded videos.
+	</video>
+	<button [ngClass]="{'video-playing' : isPlaying, 'button-shown' : buttonShown }" type="button" name="button" (click)="playVideo()">Experience</button>
 	<div class="home__wrapper">
 		<h1>THE OTHER SPACE</h1>
 		<h2>illiterati art & co-work</h2>
-		<img src="assets/logo.png" alt="the other space, illiteratiartandcowork logo">
+		<img [ngClass]="{'video-playing' : isPlaying }" src="assets/logo.png" alt="the other space, illiteratiartandcowork logo">
 	</div>
 </section>
