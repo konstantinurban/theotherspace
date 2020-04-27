@@ -30,7 +30,8 @@ export class AppComponent implements OnInit {
       speed: 800,
       slidesPerView: 1,
       mousewheelControl: true,
-      keyboardControl: true
+      keyboardControl: true,
+      nextButton: '.next-section',
     });
   }
 
