@@ -5,7 +5,7 @@
 			<source src="assets/The-Other-Space-Timeless-Final.mp4" type="video/mp4">
 			Sorry, your browser doesn't support embedded videos.
 		</video>
-		<button class="play-button" [ngClass]="{'video-playing' : isPlaying, 'button-shown' : buttonShown }" type="button" name="button" (click)="playVideo()">Experience</button>
+		<button class="play-button" [ngClass]="{'video-playing' : isPlaying, 'experience-button-shown' : experienceButtonShown }" type="button" name="button" (click)="playVideo()">Experience</button>
 		<button class="skip-button" [ngClass]="{'video-playing' : isPlaying }" (click)="endVideo()">
 			<svg width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				<g>
@@ -17,7 +17,7 @@
 				</g>
 			</svg>
 		</button>
-		<div class="swiper-button-next next-section" [ngClass]="{'video-playing' : isPlaying, 'button-shown' : !buttonShown }">Explore</div>
+		<div class="swiper-button-next next-section" [ngClass]="{'explore-button-shown' : exploreButtonShown }">Explore</div>
 	</div>
 	<div class="home__wrapper">
 		<h1>THE OTHER SPACE</h1>

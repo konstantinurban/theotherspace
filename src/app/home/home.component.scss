@@ -29,7 +29,7 @@
 		visibility: hidden;
 	}
 
-	button.play-button.button-shown {
+	button.play-button.experience-button-shown {
 		opacity: 1;
 		visibility: visible;
 	}
@@ -168,7 +168,7 @@ button.skip-button {
 		left: 8px;
 		color: #fff;
 		opacity: 0;
-		transition: opacity .6s;
+		transition: opacity 0.6s;
 		visibility: hidden;
 	}
 
@@ -232,7 +232,6 @@ button.skip-button {
 		opacity: 1;
 	}
 }
-
 /* Animated Mute */
 .mute-button.video-playing {
 	opacity: 1;
@@ -250,7 +249,7 @@ button.skip-button {
 	overflow: hidden;
 	display: inline-block;
 	opacity: 0;
-	transition: opacity .3s;
+	transition: opacity 0.3s;
 	visibility: hidden;
 
 	span {
@@ -289,16 +288,57 @@ button.skip-button {
 	}
 
 	&:hover {
-
 		span:before {
 			transform: scale(.8) translate(-3px, 0) rotate(42deg);
-    }
+		}
 	}
 
-  &.mute {
-    span:before {
+	&.mute {
+		span:before {
 			transform: scale(.5) translate(-15px, 0) rotate(36deg);
-      opacity: 0;
-    }
-  }
+			opacity: 0;
+		}
+	}
+}
+/* Next Section Arrow */
+.next-section.explore-button-shown {
+	opacity: 1;
+	visibility: visible;
+	transform: rotate(90deg);
+
+	&:after {
+		left: 125px;
+	}
+}
+
+.next-section {
+	opacity: 0;
+	visibility: hidden;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	top: auto;
+	bottom: 16%;
+	transition: transform 0.6s 0.4s, opacity 0.3s;
+	height: auto;
+	width: 60px;
+	background-image: none;
+	padding: 40px;
+	font-size: 18px;
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		background-image: url("../../assets/next-section.svg");
+		height: 20px;
+		width: 20px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		transform: rotate(90deg);
+		left: 105px;
+		top: 40px;
+		transition: left .5s 1s, transform 0.6s 0.4s;
+	}
 }

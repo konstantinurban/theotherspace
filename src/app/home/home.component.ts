@@ -9,9 +9,10 @@ import { IsDesktopService } from '../_services/is-desktop.service';
 })
 export class HomeComponent implements OnInit {
   isPlaying: boolean = false;
-  buttonShown: boolean = false;
+  experienceButtonShown: boolean = false;
+  exploreButtonShown: boolean = false;
   isDesktop: boolean;
-  isMuted: boolean = true;
+  isMuted: boolean;
   @ViewChild("introVideo", { static: false }) introVideo: ElementRef;
 
   constructor(
@@ -22,29 +23,30 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.isDesktop = this.isDesktopService.checkIfDesktop();
-    console.log("init", this.isMuted);
   }
 
   playVideo() {
-    this.buttonShown = false;
+    this.experienceButtonShown = false;
     const video: HTMLVideoElement = this.introVideo.nativeElement;
-    video.muted = true;
+    video.muted = false;
     video.play();
     this.isPlaying = true;
   }
 
   videoEnded() {
     this.isPlaying = false;
+    this.exploreButtonShown = true;
   }
 
   showPlay() {
-    this.buttonShown = true;
+    this.experienceButtonShown = true;
   }
 
   endVideo() {
     const video: HTMLVideoElement = this.introVideo.nativeElement;
     video.pause();
     this.isPlaying = false;
+    this.exploreButtonShown = true;
   }
 
   unmuteVideo() {
