@@ -42,18 +42,19 @@
 	}
 
 	.google-maps-link {
-		border: solid 2px;
-		margin-top: 20px;
+		border: solid 2px #fff;
 		max-width: 40%;
-		margin-left: auto;
-		margin-right: auto;
+		margin: auto;
 		padding: 10px;
 		background-color: $color-p;
-
-		a {
-			color: #fff;
-			text-decoration: none;
-		}
+		color: #fff;
+		text-decoration: none;
+		position: absolute;
+		z-index: 3;
+		bottom: 10%;
+		left: 0;
+		right: 0;
+		text-align: center;
 	}
 
 	.contact__map {
@@ -67,11 +68,51 @@
 			width: 100%;
 		}
 	}
-
 	@include breakpoint(500px) {
 		.contact__details {
 			width: 35%;
 			background-color: $color-p;
+		}
+		/* Animted Google maps button */
+		.google-maps-link {
+			background-color: rgba(0,0,0,.05);
+			color: $color-p;
+			border-color: $color-p;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			max-height: 20px;
+			transform: rotate(-90deg);
+			left: -58px;
+			right: auto;
+			cursor: pointer;
+			display: block;
+			transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+		}
+
+		a.google-maps-link:hover {
+			color: #fff !important;
+			background-color: transparent;
+		}
+
+		a.google-maps-link:hover:before {
+			left: 0;
+			right: auto;
+			width: 100%;
+		}
+
+		a.google-maps-link:before {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 100%;
+			width: 0;
+			z-index: -1;
+			content: '';
+			color: #000 !important;
+			background: $color-p;
+			transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 		}
 	}
 }
