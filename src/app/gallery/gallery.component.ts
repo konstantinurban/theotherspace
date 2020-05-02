@@ -11,6 +11,7 @@ declare let Swiper: any;
 })
 export class GalleryComponent implements OnInit {
   exhibits: Entry<any>[] = [];
+  eventPicturesStart: boolean = false;
 
   constructor(
     public menu: MenuService,
@@ -27,10 +28,10 @@ export class GalleryComponent implements OnInit {
     setTimeout(function() {
       new Swiper('.gallery-swiper-container', {
         slidesPerView: 1,
-        nextButton: '.swiper-button-next',
+        nextButton: '.swiper-outer-next',
         prevButton: '.swiper-button-prev',
         direction: 'horizontal',
-        loop: true,
+        loop: false,
         speed: 700,
         pagination: '.gallery-swiper-pagination',
         paginationClickable: true,
@@ -40,5 +41,15 @@ export class GalleryComponent implements OnInit {
         keyboardControl: true
       });
     }, 3000);
+  }
+
+  showEventPictures() {
+    this.eventPicturesStart = true;
+    console.log("eventPicturesStart", this.eventPicturesStart);
+  }
+
+  hideEventPictures() {
+    this.eventPicturesStart = false;
+    console.log("hideEventPictures", this.eventPicturesStart);
   }
 }

@@ -23,7 +23,8 @@ const CONFIG = {
     5. Find the top-level "sys" block in the JSON, this includes the Meta-Data of your Content Type
     6. The "id" key inside the "sys" block will contain your Content Type ID
     */
-    exhibit: 'exhibit'
+    exhibit: 'exhibit',
+    exhibitPhotos: 'exhibit-photos'
   }
 }
 
@@ -43,6 +44,14 @@ export class ContentfulService {
     return this.cdaClient.getEntries(Object.assign({
       include : 2,
       content_type: CONFIG.contentTypeIds.exhibit
+    }, query))
+      .then(res => res.items);
+  }
+
+  //get exhibit images
+  getExhibitImages(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: CONFIG.contentTypeIds.exhibitPhotos
     }, query))
       .then(res => res.items);
   }

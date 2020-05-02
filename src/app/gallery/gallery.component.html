@@ -2,21 +2,44 @@
 	<div class="swiper-container gallery-swiper-container">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide" *ngFor="let exhibit of exhibits">
-				<figure>
-					<img data-src="{{ exhibit.fields.photo.fields.file.url }}" alt="{{ exhibit.fields.photo.fields.title }}" class="swiper-lazy">
-				</figure>
-				<div class="gallery__text">
-					<h2 class="gallery__heading">Gallery</h2>
-					<p class="gallery__title">{{ exhibit.fields.title }}</p>
-					<h3 class="gallery__artist">{{ exhibit.fields.artist }}</h3>
-					<p class="gallery_onview">On View</p>
-					<p class="gallery__dates">{{ exhibit.fields.date }}</p>
-					<p class="gallery__description" *ngIf="exhibit.fields.description">{{ exhibit.fields.description }}</p>
+				<!-- <div class="swiper-container exhibit-swiper-container"> -->
+					<!-- <div class="swiper-wrapper"> -->
+						<!-- <div class="swiper-slide"> -->
+							<figure class="event__images">
+								<img data-src="{{ exhibit.fields.photo.fields.file.url }}" alt="{{ exhibit.fields.photo.fields.title }}">
+							</figure>
+							<!-- </div> -->
+							<!-- <div class="swiper-slide">
+							<figure class="event__image">
+								<img src="assets/davidzimmerman_poster.png" alt="poster">
+							</figure>
+						</div>
+						<div class="swiper-slide">
+							<figure class="event__image">
+								<img src="assets/elio_poster_Page_1.png" alt="poster">
+							</figure>
+						</div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+				<div class="gallery__content" [ngClass]="{'show-event-pictures' : eventPicturesStart}">
+					<div class="gallery__poster">
+						<figure class="poster__image">
+							<picture>
+								<source srcset="{{ exhibit.fields.photo.fields.file.url }}" type="img/png">
+								<img src="{{ exhibit.fields.photo.fields.file.url }}" alt="{{ exhibit.fields.photo.fields.description }}">
+							</picture>
+						</figure>
+					</div>
+					<div class="gallery__text">
+						<h2 class="gallery__heading">Gallery</h2>
+						<p class="gallery__description" *ngIf="exhibit.fields.description">{{ exhibit.fields.description }}</p>
+						<button class="experience-button event-pictures-button" (click)="showEventPictures()">See event pictures!</button>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="swiper-button-next"></div>
+		<div class="swiper-button-next swiper-outer-next" (click)="hideEventPictures()"></div>
 		<div class="swiper-pagination gallery-swiper-pagination"></div>
-		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-prev" (click)="hideEventPictures()"></div>
 	</div>
 </section>
