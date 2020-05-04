@@ -26,12 +26,9 @@
 		}
 	}
 
-	.gallery__poster figure {
-		padding: 20px;
-	}
-
 	figure.poster__image img {
-		height: 90%;
+		height: 95%;
+		width: 95%;
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -52,6 +49,11 @@
 		font-size: 13px;
 	}
 
+	.gallery__artist {
+		margin-top: 5px;
+		text-transform: uppercase;
+	}
+
 	.gallery__content {
 		position: absolute;
 		flex-direction: column;
@@ -68,13 +70,73 @@
 		visibility: visible;
 		transition: opacity 0s 0s, visibility 0s 0s;
 	}
+	/* Accordion Open | Expand Gallery */
+	.gallery__description,
+	.gallery__heading,
+	.gallery__subheading {
+		height: 0px;
+		opacity: 0;
+		visibility: hidden;
+		margin: 0 auto;
+		transition: opacity .4s .3s;
+	}
+
+	.gallery__text.gallery-expand {
+		height: 100%;
+		padding-top: 15%;
+
+		.gallery__description,
+		.gallery__heading,
+		.gallery__subheading {
+			height: auto;
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.gallery-expand-button {
+			transform: rotate(90deg);
+			bottom: 25%;
+			top: auto !important;
+		}
+	}
+
+	.gallery__poster.gallery-expand {
+		height: 0;
+	}
+
+	.gallery__poster {
+		height: 70%;
+	}
+
+	.gallery__text {
+		height: 30%;
+		overflow: hidden;
+	}
+
+	.gallery-expand-button {
+		position: absolute;
+		border: none;
+		background-color: transparent;
+		left: 0;
+		right: 0;
+		margin: 0 auto 0 auto;
+		width: 100%;
+		height: 100%;
+		max-width: 27px;
+		max-height: 27px;
+		background-image: url("../../assets/next.svg");
+		background-repeat: no-repeat;
+		background-size: contain;
+		transform: rotate(-90deg);
+		bottom: 85%;
+		transition: transform 1s;
+	}
 
 	.gallery__poster,
 	.gallery__text {
-		transition: transform 0.4s;
+		transition: transform 0.4s, height .7s ease-out;
 		transform: translateX(0%);
 		width: 100%;
-		flex-grow: 1;
 	}
 
 	.gallery__text {
@@ -87,8 +149,17 @@
 		margin-top: 3%;
 		margin-bottom: 3%;
 		font-size: 25px;
+		text-transform: uppercase;
+	}
+
+	.gallery__subheading {
+		margin-top: 0;
 	}
 	@include breakpoint(800px) {
+		.gallery-expand-button {
+			display: none;
+		}
+
 		.gallery__heading {
 			margin-top: 10%;
 			font-size: 40px;
@@ -107,15 +178,19 @@
 			}
 		}
 
-		.gallery__poster figure {
-			margin: 20px;
-			padding: 0;
+		.gallery__description,
+		.gallery__heading,
+		.gallery__subheading {
+			height: auto;
+			opacity: 1;
+			visibility: visible;
 		}
 
 		.gallery__poster,
 		.gallery__text {
 			width: 50%;
 			height: 100%;
+			height: auto;
 
 			p {
 				font-size: 16px;
@@ -151,6 +226,11 @@
 		transition: background-position-x 0.5s 0s, color 0.2s 0s, opacity 0.4s;
 		opacity: 1;
 		position: static;
+		background-repeat: no-repeat;
+
+		&:after {
+			content: '';
+		}
 	}
 
 	.swiper-button-prev {
@@ -199,13 +279,12 @@
 	opacity: 0;
 	visibility: hidden;
 }
-
 /* Animation | eventPicturesStart */
 .swiper-slide-active {
 	.gallery__content.show-event-pictures {
 		opacity: 0;
 		visibility: hidden;
-		transition: opacity .0s 1s, visibility 0s 1s;
+		transition: opacity 0.0s 7s, visibility 0s 1s;
 
 		.gallery__poster,
 		.gallery__text {

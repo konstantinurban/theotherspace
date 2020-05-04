@@ -27,14 +27,13 @@ export class ExhibitImagesComponent implements OnInit {
     setTimeout(function() {
       new Swiper('.exhibit-swiper-container', {
         slidesPerView: 1,
-        nextButton: '.swiper-inner-next',
+        navigation: {
+          nextEl: '.swiper-inner-next',
+          prevEl: '.swiper-inner-prev',
+        },
         direction: 'horizontal',
-        loop: true,
-        speed: 700,
-        draggable: false,
-        keyboardControl: true,
-        preloadImages: false,
-        lazy: true
+        loop: false,
+        speed: 700
       });
     }, 3000);
   }

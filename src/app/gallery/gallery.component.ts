@@ -12,7 +12,7 @@ declare let Swiper: any;
 export class GalleryComponent implements OnInit {
   exhibits: Entry<any>[] = [];
   eventPicturesStart: boolean = false;
-  nextArtist: [] = [];
+  isGalleryExpanded: boolean = false;
 
   constructor(
     public menu: MenuService,
@@ -24,52 +24,49 @@ export class GalleryComponent implements OnInit {
     console.log("Load Gallery Component");
     this.contentfulService.getExhibits()
       .then(exhibits => this.exhibits = exhibits)
-    // .then(exhibit => {
-    //   this.exhibits.forEach(artist => {
-    //     this.nextArtist.push(artist.fields.artist);
-    //   });
-    // });
+      .then(exhibits => console.log(exhibits));
   }
 
   ngAfterViewInit() {
     setTimeout(function() {
-      new Swiper('.gallery-swiper-container', {
+      this.gallerySwiper = new Swiper('.gallery-swiper-container', {
         slidesPerView: 1,
-        nextButton: '.swiper-outer-next',
-        prevButton: '.swiper-outer-prev',
         direction: 'horizontal',
+        allowTouchMove: false,
+        lazy: {
+          loadPrevNext: true,
+        },
         loop: false,
         speed: 700,
-        draggable: false,
-        pagination: '.gallery-swiper-pagination',
-        paginationClickable: true,
-        paginationType: 'fraction',
-        preloadImages: false,
-        lazy: true,
-        keyboardControl: false
+        navigation: {
+          nextEl: '.swiper-outer-next',
+          prevEl: '.swiper-outer-prev'
+        },
+        pagination: {
+          el: '.gallery-swiper-pagination',
+          type: 'fraction',
+        },
       });
     }, 3000);
   }
 
   showEventPictures(e) {
     this.eventPicturesStart = true;
-    let exhibits = document.querySelectorAll('.gallery__content');
-    // setTimeout(() => {
-    //   exhibits.forEach(exhibit => {
-    //     if (!(exhibit.parentElement.classList.contains("swiper-slide-active"))) {
-    //       exhibit.classList.remove("show-event-pictures");
-    //     }
-    //   });
-    // }, 1000);
   }
 
   hideEventPictures() {
     this.eventPicturesStart = false;
-    console.log("hideEventPictures", this.eventPicturesStart);
   }
 
   getEndEventImages($event) {
     this.eventPicturesStart = $event;
   }
 
+  expandGallery() {
+    if(!this.isGalleryExpanded) {
+      this.isGalleryExpanded = true;
+    } else if (this.isGalleryExpanded) {
+      this.isGalleryExpanded = false;
+    }
+  }
 }

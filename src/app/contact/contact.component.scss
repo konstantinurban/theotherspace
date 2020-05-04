@@ -51,10 +51,10 @@
 		text-decoration: none;
 		position: absolute;
 		z-index: 3;
-		bottom: 10%;
-		left: 0;
-		right: 0;
+		bottom: 50%;
+		left: -40px;
 		text-align: center;
+		transform: rotate(-90deg);
 	}
 
 	.contact__map {
@@ -73,6 +73,7 @@
 			width: 35%;
 			background-color: $color-p;
 		}
+
 		/* Animted Google maps button */
 		.google-maps-link {
 			background-color: rgba(0,0,0,.05);
@@ -82,7 +83,6 @@
 			top: 0;
 			bottom: 0;
 			max-height: 20px;
-			transform: rotate(-90deg);
 			left: -58px;
 			right: auto;
 			cursor: pointer;

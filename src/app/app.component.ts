@@ -25,13 +25,23 @@ export class AppComponent implements OnInit {
     new Swiper('.main-swiper-container', {
       loop: false,
       direction: 'vertical',
-      pagination: '.main-swiper-pagination',
-      paginationClickable: true,
+      pagination: {
+        el: '.main-swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      keyboard: {
+        enabled: true,
+        onlyInViewport: false,
+      },
+      mousewheel: {
+        invert: false,
+      },
       speed: 800,
       slidesPerView: 1,
-      mousewheelControl: true,
-      keyboardControl: true,
-      nextButton: '.next-section',
+      navigation: {
+        nextEl: '.next-section',
+      },
     });
   }
 
