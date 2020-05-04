@@ -12,6 +12,7 @@ declare let Swiper: any;
 export class GalleryComponent implements OnInit {
   exhibits: Entry<any>[] = [];
   eventPicturesStart: boolean = false;
+  nextArtist: [] = [];
 
   constructor(
     public menu: MenuService,
@@ -20,8 +21,14 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("Load Gallery Component");
     this.contentfulService.getExhibits()
-      .then(exhibits => this.exhibits = exhibits);
+      .then(exhibits => this.exhibits = exhibits)
+    // .then(exhibit => {
+    //   this.exhibits.forEach(artist => {
+    //     this.nextArtist.push(artist.fields.artist);
+    //   });
+    // });
   }
 
   ngAfterViewInit() {
@@ -29,27 +36,40 @@ export class GalleryComponent implements OnInit {
       new Swiper('.gallery-swiper-container', {
         slidesPerView: 1,
         nextButton: '.swiper-outer-next',
-        prevButton: '.swiper-button-prev',
+        prevButton: '.swiper-outer-prev',
         direction: 'horizontal',
         loop: false,
         speed: 700,
+        draggable: false,
         pagination: '.gallery-swiper-pagination',
         paginationClickable: true,
         paginationType: 'fraction',
         preloadImages: false,
         lazy: true,
-        keyboardControl: true
+        keyboardControl: false
       });
     }, 3000);
   }
 
-  showEventPictures() {
+  showEventPictures(e) {
     this.eventPicturesStart = true;
-    console.log("eventPicturesStart", this.eventPicturesStart);
+    let exhibits = document.querySelectorAll('.gallery__content');
+    // setTimeout(() => {
+    //   exhibits.forEach(exhibit => {
+    //     if (!(exhibit.parentElement.classList.contains("swiper-slide-active"))) {
+    //       exhibit.classList.remove("show-event-pictures");
+    //     }
+    //   });
+    // }, 1000);
   }
 
   hideEventPictures() {
     this.eventPicturesStart = false;
     console.log("hideEventPictures", this.eventPicturesStart);
   }
+
+  getEndEventImages($event) {
+    this.eventPicturesStart = $event;
+  }
+
 }

@@ -13,6 +13,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { MenuComponent } from './menu/menu.component';
 import { NavComponent } from './menu/nav/nav.component';
+import { ExhibitImagesComponent } from './gallery/exhibit-images/exhibit-images.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { NavComponent } from './menu/nav/nav.component';
     ContactComponent,
     AboutComponent,
     MenuComponent,
-    NavComponent
+    NavComponent,
+    ExhibitImagesComponent
   ],
   imports: [
     BrowserModule,
