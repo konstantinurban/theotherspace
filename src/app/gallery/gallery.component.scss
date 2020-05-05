@@ -130,6 +130,7 @@
 		transform: rotate(-90deg);
 		bottom: 85%;
 		transition: transform 1s;
+		animation: bounceExpandButton 1.5s ease-out infinite;
 	}
 
 	.gallery__poster,

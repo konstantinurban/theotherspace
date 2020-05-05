@@ -7,11 +7,11 @@
 	background-image: url("../../assets/img_co-work.jpeg");
 	background-size: cover;
 	background-repeat: no-repeat;
-	text-align: center;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
 	position: relative;
+
+	h2 {
+		margin-bottom: 25px;
+	}
 
 	&:after {
 		content: '';
@@ -22,15 +22,120 @@
 		right: 0;
 		bottom: 0;
 		background-color: $color-p-rgba;
-		@include breakpoint(700px) {
-			right: 50%;
-		}
 	}
 
 	.co-work__text {
 		width: 100%;
-		z-index: 100;
-		@include breakpoint(700px) {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: center;
+	}
+
+	.co-work__info {
+		ul {
+			padding: 0;
+			max-width: 80%;
+			margin: auto;
+
+			li:first-child {
+				&:after {
+					background-image: url("../../assets/internet.svg");
+				}
+			}
+
+			li:nth-child(2) {
+				&:after {
+					background-image: url("../../assets/cowork.svg");
+				}
+			}
+
+			li:nth-child(3) {
+				&:after {
+					background-image: url("../../assets/croissant.svg");
+				}
+			}
+
+			li:nth-child(4) {
+				&:after {
+					background-image: url("../../assets/moonpeak.svg");
+				}
+			}
+
+			li {
+				align-items: center;
+				justify-content: space-between;
+				list-style-type: none;
+				position: relative;
+				display: flex;
+				margin-bottom: 5%;
+
+				&:after {
+					content: '';
+					display: block;
+					height: 60px;
+					width: 60px;
+					border-radius: 10px;
+					background-color: #fff;
+					background-size: 40px 40px;
+					background-repeat: no-repeat;
+					background-position: center;
+					flex-shrink: 0;
+				}
+
+				p {
+					max-width: 70%;
+					margin: 0;
+				}
+			}
+		}
+	}
+	@include breakpoint(700px) {
+		h2 {
+			margin-bottom: 50px;
+		}
+
+		.co-work__info {
+			ul {
+				max-width: 70%;
+
+				li:first-child,
+				li:nth-child(3) {
+					justify-content: flex-start;
+				}
+
+				li:nth-child(2),
+				li:nth-child(4) {
+					justify-content: flex-end;
+				}
+
+				li {
+					margin-bottom: 15%;
+
+					&:after {
+						position: absolute;
+						left: 0;
+						right: 0;
+						top: 0;
+						bottom: 0;
+						margin: auto;
+					}
+
+					p {
+						max-width: 40%;
+					}
+				}
+			}
+		}
+
+		&:after {
+			right: 50%;
+		}
+
+		.co-work__text {
 			max-width: 50%;
 		}
 	}
