@@ -24,7 +24,8 @@ const CONFIG = {
     6. The "id" key inside the "sys" block will contain your Content Type ID
     */
     exhibit: 'exhibit',
-    exhibitPhotos: 'exhibitPhotos'
+    exhibitPhotos: 'exhibitPhotos',
+    specialItem: 'specialItem'
   }
 }
 
@@ -44,6 +45,15 @@ export class ContentfulService {
     return this.cdaClient.getEntries(Object.assign({
       include : 2,
       content_type: CONFIG.contentTypeIds.exhibit
+    }, query))
+      .then(res => res.items);
+  }
+
+  //get all special item
+  getSpecialItems(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      include : 2,
+      content_type: CONFIG.contentTypeIds.specialItem
     }, query))
       .then(res => res.items);
   }

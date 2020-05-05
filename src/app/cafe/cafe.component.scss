@@ -2,6 +2,7 @@
 @import 'variables';
 
 .cafe__section {
+	padding-bottom: 20px;
 	transform: translateX(0px);
 	transition: transform 0.5s;
 	background-image: url("../../assets/img_cafe.jpeg");
@@ -37,8 +38,8 @@
 	}
 
 	.cafe__specials--wrapper {
+		max-width: 80%;
 		height: auto;
-		max-width: 50%;
 		padding: 10px;
 		border: solid 2px #fff;
 		margin: auto;
@@ -58,6 +59,8 @@
 
 		.specials__photo {
 			margin-bottom: 20px;
+			max-height: 80%;
+			overflow: hidden;
 		}
 
 		.specials__text p {
@@ -76,8 +79,8 @@
 		z-index: 100;
 
 		p.text__intro {
-			max-width: 55%;
 			margin: auto;
+			max-width: 85%;
 		}
 	}
 	@include breakpoint(700px) {
@@ -85,8 +88,16 @@
 			left: 50%;
 		}
 
+		.cafe__specials--wrapper {
+			max-width: 60%;
+		}
+
 		.cafe__text {
 			max-width: 50%;
+
+			p.intro__text {
+				max-width: 55%;
+			}
 		}
 	}
 }

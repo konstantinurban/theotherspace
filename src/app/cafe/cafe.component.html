@@ -9,21 +9,21 @@
 		<div class="cafe__specials--wrapper">
 			<div class="swiper-container cafe-swiper-container">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide">
+					<div class="swiper-slide" *ngFor="let item of specialItems">
 						<div class="specials__photo">
 							<figure>
 								<picture>
-									<img src="../../assets/coffee.jpg" alt="">
+									<img src="{{ item.fields.image.fields.file.url }}" alt="">
 								</picture>
 							</figure>
 						</div>
 						<div class="specials__text">
 							<p>
-								Coffee
+								{{ item.fields.itemName }}
 							</p>
 						</div>
 					</div>
-					<div class="swiper-slide">
+					<!-- <div class="swiper-slide">
 						<div class="specials__photo">
 							<figure>
 								<picture>
@@ -36,8 +36,8 @@
 								Lorem
 							</p>
 						</div>
-					</div>
-					<div class="swiper-slide">
+					</div> -->
+					<!-- <div class="swiper-slide">
 						<div class="specials__photo">
 							<figure>
 								<picture>
@@ -50,11 +50,9 @@
 								Loerem
 							</p>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
-		<div class="swiper-button-prev swiper-item-prev"></div>
-		<div class="swiper-button-next swiper-item-next"></div>
 	</div>
 </section>
