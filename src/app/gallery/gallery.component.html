@@ -8,7 +8,7 @@
 						<figure class="poster__image">
 							<picture>
 								<source srcset="{{ exhibit.fields.photo.fields.file.url }}" type="img/png">
-								<img src="{{ exhibit.fields.photo.fields.file.url }}" alt="{{ exhibit.fields.photo.fields.description }}">
+								<img #img src="{{ exhibit.fields.photo.fields.file.url }}" alt="{{ exhibit.fields.photo.fields.description }}">
 							</picture>
 						</figure>
 					</div>
@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		<div class="gallery__controls" [ngClass]="{'show-event-pictures' : eventPicturesStart}">
-			<button class="event-pictures-button" (click)="showEventPictures($event)">See event pictures!</button>
+			<button #test class="event-pictures-button" (click)="showEventPictures($event)">See event pictures!</button>
 			<div class="swiper-button-prev swiper-outer-prev" (click)="hideEventPictures()"></div>
 			<div class="swiper-pagination gallery-swiper-pagination"></div>
 			<div class="swiper-button-next swiper-outer-next" (click)="hideEventPictures()"></div>

@@ -23,8 +23,7 @@ export class GalleryComponent implements OnInit {
   ngOnInit() {
     console.log("Load Gallery Component");
     this.contentfulService.getExhibits()
-      .then(exhibits => this.exhibits = exhibits)
-      .then(exhibits => console.log(exhibits));
+      .then(exhibits => this.exhibits = exhibits);
   }
 
   ngAfterViewInit() {
@@ -63,7 +62,7 @@ export class GalleryComponent implements OnInit {
   }
 
   expandGallery() {
-    if(!this.isGalleryExpanded) {
+    if (!this.isGalleryExpanded) {
       this.isGalleryExpanded = true;
     } else if (this.isGalleryExpanded) {
       this.isGalleryExpanded = false;
