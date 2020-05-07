@@ -21,7 +21,6 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("Load Gallery Component");
     this.contentfulService.getExhibits()
       .then(exhibits => this.exhibits = exhibits);
   }

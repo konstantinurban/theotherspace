@@ -4,38 +4,70 @@
 .about__section {
 	display: flex;
 	flex-direction: column;
+	background-image: url("../../assets/img_about.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
 	transform: translateX(0px);
 	transition: transform 0.5s;
-	background-color: #333345;
 	position: relative;
 
 	h2 {
-		padding-top: 30px;
+		line-height: 1;
+		margin: auto;
 	}
 
 	.about__text {
-		width: 100%;
-		height: 100%;
-		border: solid 2px;
-		padding: 20px;
-		margin: auto;
 		display: flex;
-		max-height: 70%;
-		max-width: 77%;
 		flex-direction: column;
 		justify-content: space-between;
-		font-size: 2.4vh;
+		padding: 5% 0;
+		width: 100%;
+		height: 100%;
+		position: relative;
 
-		p {
-			color: #fff;
-			text-align: center;
+		&:after {
+			background-color: $color-p-rgba;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			height: 100%;
+			width: 100%;
+			display: block;
+			content: '';
+			z-index: -1;
+		}
+
+		.text__container {
+			max-width: 80%;
+			margin: auto;
+
+			p {
+				font-size: 14px;
+			}
 		}
 	}
-	@include breakpoint(800px) {
+
+	@include breakpoint(400px) {
 		.about__text {
-			max-height: 72%;
-			max-width: 70%;
-			font-size: 22px;
+			.text__container {
+				p {
+					font-size: 17px;
+				}
+			}
+		}
+	}
+
+	@include breakpoint(700px) {
+
+		.about__text {
+			padding: 10% 0;
+			width: 50%;
+
+			.text__container {
+				max-width: 70%;
+			}
 		}
 	}
 }

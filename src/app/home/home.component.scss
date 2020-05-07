@@ -80,13 +80,7 @@
 
 	@include breakpoint(600px) {
 		.home__wrapper img {
-			max-width: 300px;
-		}
-	}
-
-	@include breakpoint(1000px) {
-		.home__wrapper img {
-			max-width: 500px;
+			max-width: 50%;
 		}
 	}
 }

@@ -83,6 +83,13 @@
 			max-width: 85%;
 		}
 	}
+
+	@include breakpoint(500px) {
+		.cafe__specials--wrapper {
+			max-width: 70%;
+		}
+	}
+
 	@include breakpoint(700px) {
 		&:after {
 			left: 50%;
