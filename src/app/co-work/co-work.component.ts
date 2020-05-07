@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../_services/menu.service';
-
 
 @Component({
   selector: 'app-co-work',
@@ -10,7 +8,6 @@ import { MenuService } from '../_services/menu.service';
 export class CoWorkComponent implements OnInit {
 
   constructor(
-    public menu : MenuService
   ) { }
 
   ngOnInit() {

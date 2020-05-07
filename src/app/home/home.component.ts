@@ -1,5 +1,4 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { MenuService } from '../_services/menu.service';
 import { IsDesktopService } from '../_services/is-desktop.service';
 
 @Component({
@@ -16,7 +15,6 @@ export class HomeComponent implements OnInit {
   @ViewChild("introVideo", { static: false }) introVideo: ElementRef;
 
   constructor(
-    public menu: MenuService,
     public isDesktopService: IsDesktopService
   ) {
   }

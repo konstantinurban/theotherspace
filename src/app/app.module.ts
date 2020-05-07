@@ -11,8 +11,6 @@ import { CoWorkComponent } from './co-work/co-work.component';
 import { CafeComponent } from './cafe/cafe.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
-import { MenuComponent } from './menu/menu.component';
-import { NavComponent } from './menu/nav/nav.component';
 import { ExhibitImagesComponent } from './gallery/exhibit-images/exhibit-images.component';
 import { ImagesLoadedDirective } from './_directives/images-loaded.directive';
 
@@ -27,8 +25,6 @@ import { ImagesLoadedDirective } from './_directives/images-loaded.directive';
     CafeComponent,
     ContactComponent,
     AboutComponent,
-    MenuComponent,
-    NavComponent,
     ExhibitImagesComponent,
     ImagesLoadedDirective
   ],

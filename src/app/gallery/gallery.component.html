@@ -1,4 +1,4 @@
-<section class="gallery__section" [class.menu--open]="menu.isMenuClosed">
+<section class="gallery__section">
 	<div class="swiper-container gallery-swiper-container">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide exhibit-slide" *ngFor="let exhibit of exhibits; let i = index">
@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		<div class="gallery__controls" [ngClass]="{'show-event-pictures' : eventPicturesStart}">
-			<button class="event-pictures-button" (click)="showEventPictures($event)">Loem</button>
+			<button class="event-pictures-button" (click)="showEventPictures($event)"></button>
 			<div class="swiper-button-prev swiper-outer-prev" (click)="hideEventPictures()"></div>
 			<div class="swiper-pagination gallery-swiper-pagination"></div>
 			<div class="swiper-button-next swiper-outer-next" (click)="hideEventPictures()"></div>

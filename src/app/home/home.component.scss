@@ -2,8 +2,6 @@
 @import 'mixins';
 
 .home__section {
-	transform: translateX(0px);
-	transition: transform 0.5s;
 	position: relative;
 	background-color: $color-p;
 

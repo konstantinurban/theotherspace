@@ -38,7 +38,7 @@
 	}
 
 	.cafe__specials--wrapper {
-		max-width: 80%;
+		max-width: 60%;
 		height: auto;
 		padding: 10px;
 		border: solid 2px #fff;
@@ -75,6 +75,7 @@
 	}
 
 	.cafe__text {
+		margin-bottom: 20%;
 		width: 100%;
 		z-index: 100;
 
@@ -100,6 +101,7 @@
 		}
 
 		.cafe__text {
+			margin-bottom: auto;
 			max-width: 50%;
 
 			p.text__intro {

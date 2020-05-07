@@ -64,7 +64,7 @@
   height: 100%;
   max-height: 60px;
   border-radius: 10px;
-  bottom: 3%;
+  bottom: 15%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -83,6 +83,7 @@
 
 @include breakpoint(800px) {
   .exhibit__controls {
+    bottom: 3%;
     right: 16%;
     left: auto;
   }

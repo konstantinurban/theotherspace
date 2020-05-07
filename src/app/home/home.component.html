@@ -1,4 +1,4 @@
-<section id="home" class="home__section" [class.menu--open]="menu.isMenuClosed">
+<section id="home" class="home__section">
 	<div class="home__video--wrapper" *ngIf="isDesktop">
 		<a class="mute-button" [ngClass]="{'mute' : isMuted, 'video-playing' : isPlaying }" (click)="unmuteVideo()"><span></span></a>
 		<video height="50px" width="50px" #introVideo [ngClass]="{'video-playing' : isPlaying }" (ended)="videoEnded()" (loadeddata)="showPlay()" playsinline>

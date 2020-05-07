@@ -1,5 +1,4 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { MenuService } from '../_services/menu.service';
 import { ContentfulService } from '../_services/contentful.service';
 import { Entry } from 'contentful';
 declare let Swiper: any;
@@ -13,7 +12,6 @@ export class CafeComponent implements OnInit {
   specialItems: Entry<any>[] = [];
 
   constructor(
-    public menu: MenuService,
     private contentfulService: ContentfulService
   ) {
   }

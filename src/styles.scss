@@ -33,15 +33,6 @@ h2 {
 		width: 100%;
 	}
 
-	section.about__section.menu--open,
-	section.cafe__section.menu--open,
-	section.co-work__section.menu--open,
-	section.contact__section.menu--open,
-	section.gallery__section.menu--open,
-	section.home__section.menu--open {
-		transform: translateX(300px);
-		transition: transform 0.5s;
-	}
 }
 
 section.about__section,

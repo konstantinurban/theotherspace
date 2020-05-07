@@ -1,5 +1,4 @@
 import { Component, OnInit, AfterViewInit, ViewChildren, QueryList, ElementRef } from '@angular/core';
-import { MenuService } from '../_services/menu.service';
 import { ContentfulService } from '../_services/contentful.service';
 import { ImagesLoadedDirective } from '../_directives/images-loaded.directive';
 import { forkJoin, Subscription, of } from 'rxjs';
@@ -19,7 +18,6 @@ export class GalleryComponent implements OnInit {
   @ViewChildren(ImagesLoadedDirective) images: QueryList<ImagesLoadedDirective>;
 
   constructor(
-    public menu: MenuService,
     private contentfulService: ContentfulService
   ) {
   }
