@@ -14,6 +14,7 @@ import { AboutComponent } from './about/about.component';
 import { MenuComponent } from './menu/menu.component';
 import { NavComponent } from './menu/nav/nav.component';
 import { ExhibitImagesComponent } from './gallery/exhibit-images/exhibit-images.component';
+import { ImagesLoadedDirective } from './_directives/images-loaded.directive';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ExhibitImagesComponent } from './gallery/exhibit-images/exhibit-images.
     AboutComponent,
     MenuComponent,
     NavComponent,
-    ExhibitImagesComponent
+    ExhibitImagesComponent,
+    ImagesLoadedDirective
   ],
   imports: [
     BrowserModule,

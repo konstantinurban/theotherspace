@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit, ViewEncapsulation, HostListener } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ViewEncapsulation, HostListener, ViewChildren, QueryList } from '@angular/core';
 import { IsDesktopService } from './_services/is-desktop.service';
 declare let Swiper: any;
 declare let WOW: any;

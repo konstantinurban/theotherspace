@@ -1,6 +1,8 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { MenuService } from '../_services/menu.service';
 import { ContentfulService } from '../_services/contentful.service';
+import { ImagesLoadedDirective } from '../_directives/images-loaded.directive';
+import { forkJoin, Subscription } from 'rxjs';
 import { Entry } from 'contentful';
 declare let Swiper: any;
 
@@ -13,6 +15,7 @@ export class GalleryComponent implements OnInit {
   exhibits: Entry<any>[] = [];
   eventPicturesStart: boolean = false;
   isGalleryExpanded: boolean = false;
+  @ViewChildren(ImagesLoadedDirective) images: QueryList<ImagesLoadedDirective>;
 
   constructor(
     public menu: MenuService,
@@ -26,8 +29,11 @@ export class GalleryComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    forkJoin(this.images.map(imgDir => imgDir.loaded)).subscribe(() => {
+      console.log('all images have been loaded');
+    });
     setTimeout(function() {
-      this.gallerySwiper = new Swiper('.gallery-swiper-container', {
+      new Swiper('.gallery-swiper-container', {
         slidesPerView: 1,
         direction: 'horizontal',
         allowTouchMove: false,
