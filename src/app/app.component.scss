@@ -97,6 +97,7 @@
 
     &:hover::after {
       opacity: 1;
+      font-size: 15px;
     }
 
     &:after {
@@ -106,7 +107,7 @@
       z-index: 100;
       opacity: 0;
       top: 2px;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s, font-size 0.2s;
     }
   }
 
@@ -171,95 +172,134 @@
     }
   }
 }
-/* Arrow keys styles and annimation */
-.arrow-keys.visible {
-  opacity: 1;
+/* Section Animations | Co-Work*/
+.slide-cowork {
+  ul.co-work__list {
+    li p {
+      opacity: 0;
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    li:first-child p {
+      transition-delay: 0.5s;
+    }
+
+    li:nth-child(2) p {
+      transition-delay: 0.8s;
+    }
+
+    li:nth-child(3) p {
+      transition-delay: 1.1s;
+    }
+
+    li:nth-child(4) p {
+      transition-delay: 1.4s;
+    }
+
+    li:first-child p,
+    li:nth-child(3) p {
+      transform: translateX(-20px);
+    }
+
+    li:nth-child(2) p,
+    li:nth-child(4) p {
+      transform: translateX(20px);
+    }
+  }
+
+  &.swiper-slide-active {
+    ul.co-work__list {
+      li p {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+    }
+  }
 }
-
-.arrow-keys {
-  opacity: 0;
-  transition: opacity .5s;
-  position: absolute;
-  bottom: 10%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  background-color: rgba(0,0,0, .5);
-  max-width: 160px;
-  border-radius: 10px;
-  padding: 10px;
-
-  p {
-    font-size: 12px;
-    text-align: center;
+/* Section Animations | About | Cafe | Gallery */
+.slide-about,
+.slide-cafe {
+  .cafe__specials--wrapper,
+  .text__container p,
+  .text__intro,
+  h2,
+  h3 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s, transform 0.7s;
   }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  h2 {
+    transition-delay: 0.3s;
   }
 
-  ul {
-    list-style: none;
-    position: relative;
-    width: 152px;
-    height: 104px;
-    left: 50%;
-    top: 30%;
-    margin-left: -76px;
+  .text__container p,
+  .text__intro {
+    transition-delay: 0.7s;
   }
 
-  li {
-    position: absolute;
-    top: 56px;
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    background-color: rgba(0,0,0, .8);
-    border: 1px solid #eee;
-    border-radius: 8px;
-    animation-duration: 1.3s;
-    animation-timing-function: linear;
-    animation-iteration-count: 2;
-    animation-fill-mode: backwards;
-    opacity: .2;
+  .cafe__specials--wrapper,
+  h3 {
+    transition-delay: 1s;
   }
 
-  li:nth-child(1) {
-    top: 8px;
-    left: 56px;
-    animation-name: animateKey;
-  }
-
-  li:nth-child(2) {
-    left: 8px;
-    animation-name: animateKey;
-  }
-
-  li:nth-child(3) {
-    left: 56px;
-    animation-name: animateKey;
-  }
-
-  li:nth-child(4) {
-    left: 104px;
-    animation-name: animateKey;
-  }
-  @keyframes animateKey {
-    0% {
-      opacity: .2;
+  &.swiper-slide-active {
+    .cafe__specials--wrapper,
+    .text__container p,
+    .text__intro,
+    h2,
+    h3 {
+      opacity: 1;
+      transform: translateY(0px);
     }
+  }
+}
+/* Section Animations | Gallery */
+.slide-gallery {
+  .gallery__section {
+    #exhibit-0 {
+      .gallery__text {
+        .gallery__artist,
+        .gallery__description,
+        .gallery__heading,
+        .gallery__subheading {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.7s, transform 0.7s;
+        }
 
-    50% {
-      opacity: 0.8;
+        .gallery__heading {
+          transition-delay: .3s;
+        }
+
+        .gallery__subheading {
+          transition-delay: 0.6s;
+        }
+
+        .gallery__artist {
+          transition-delay: 0.9s;
+        }
+
+        .gallery__description {
+          transition-delay: 1.2s;
+        }
+      }
     }
+  }
 
-    100% {
-      opacity: .2;
+  &.swiper-slide-active {
+    .gallery__section {
+      #exhibit-0 {
+        .gallery__text {
+          .gallery__artist,
+          .gallery__description,
+          .gallery__heading,
+          .gallery__subheading {
+            opacity: 1;
+            transform: translateY(0px);
+          }
+        }
+      }
     }
   }
 }

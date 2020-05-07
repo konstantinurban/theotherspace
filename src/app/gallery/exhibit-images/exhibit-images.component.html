@@ -1,0 +1,17 @@
+<div class="swiper-container exhibit-swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let image of exhibitImages">
+      <figure class="event__images">
+        <picture>
+          <source srcset="{{ image.fields.file.url }}" type="img/jpg">
+          <img #exhibitImg src="{{ image.fields.file.url }}" alt="">
+        </picture>
+      </figure>
+    </div>
+  </div>
+</div>
+<div class="exhibit__controls" [ngClass]="{'show-event-pictures' : eventPicturesStart }">
+  <div class="swiper-button-prev swiper-inner-prev"></div>
+  <div class="swiper-button-next swiper-inner-next"></div>
+  <div class="exhibit__close" (click)="backToGallery()"></div>
+</div>

@@ -1,20 +1,11 @@
 <app-menu></app-menu>
 <app-nav></app-nav>
-<section class="body-desktop swiper-container main-swiper-container" *ngIf="isDesktop">
+<section id="body-desktop" class="body-desktop swiper-container main-swiper-container" *ngIf="isDesktop">
   <div class="swiper-wrapper">
     <div class="swiper-slide slide-home">
       <app-home></app-home>
       <p class="slide-name">Home</p>
       <div class="main-swiper-pagination swiper-pagination wow fadeInLeft"></div>
-      <div class="arrow-keys wow fadeIn" [ngClass]="{ 'visible' : arrowsDisplayed }">
-        <p>Supports Keyboard Navigation</p>
-        <ul>
-          <li>&#8593;</li>
-          <li>&#8592;</li>
-          <li>&#8595;</li>
-          <li>&#8594;</li>
-        </ul>
-      </div>
     </div>
     <div class="swiper-slide slide-gallery">
       <app-gallery></app-gallery>

@@ -1,7 +1,58 @@
 <section class="cafe__section" [class.menu--open]="menu.isMenuClosed">
 	<div class="cafe__text">
 		<h2>Cafe</h2>
-		<p>Freshly brewed coffee, Sandwiches,
-Homemade parantha, iced teas, fresh fruit juices...</p>
+		<p class="text__intro">
+			Freshly brewed coffee, Sandwiches,
+			Homemade parantha, iced teas, fresh fruit juices...
+		</p>
+		<h3>Today's specials:</h3>
+		<div class="cafe__specials--wrapper">
+			<div class="swiper-container cafe-swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" *ngFor="let item of specialItems">
+						<div class="specials__photo">
+							<figure>
+								<picture>
+									<img src="{{ item.fields.image.fields.file.url }}" alt="">
+								</picture>
+							</figure>
+						</div>
+						<div class="specials__text">
+							<p>
+								{{ item.fields.itemName }}
+							</p>
+						</div>
+					</div>
+					<!-- <div class="swiper-slide">
+						<div class="specials__photo">
+							<figure>
+								<picture>
+									<img src="../../assets/cheese-cake.jpg" alt="">
+								</picture>
+							</figure>
+						</div>
+						<div class="specials__text">
+							<p>
+								Lorem
+							</p>
+						</div>
+					</div> -->
+					<!-- <div class="swiper-slide">
+						<div class="specials__photo">
+							<figure>
+								<picture>
+									<img src="../../assets/toast.jpg" alt="">
+								</picture>
+							</figure>
+						</div>
+						<div class="specials__text">
+							<p>
+								Loerem
+							</p>
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
