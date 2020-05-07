@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChildren, QueryList, ElementRef }
 import { MenuService } from '../_services/menu.service';
 import { ContentfulService } from '../_services/contentful.service';
 import { ImagesLoadedDirective } from '../_directives/images-loaded.directive';
-import { forkJoin, Subscription } from 'rxjs';
+import { forkJoin, Subscription, of } from 'rxjs';
 import { Entry } from 'contentful';
 declare let Swiper: any;
 
@@ -15,6 +15,7 @@ export class GalleryComponent implements OnInit {
   exhibits: Entry<any>[] = [];
   eventPicturesStart: boolean = false;
   isGalleryExpanded: boolean = false;
+  subscription: Subscription;
   @ViewChildren(ImagesLoadedDirective) images: QueryList<ImagesLoadedDirective>;
 
   constructor(
@@ -26,32 +27,44 @@ export class GalleryComponent implements OnInit {
   ngOnInit() {
     this.contentfulService.getExhibits()
       .then(exhibits => this.exhibits = exhibits);
+    // .subscribe(exhibits => this.exhibits = exhibits);
+  }
+
+  imagesLoaded() {
+    new Swiper('.gallery-swiper-container', {
+      slidesPerView: 1,
+      direction: 'horizontal',
+      allowTouchMove: false,
+      lazy: {
+        loadPrevNext: true,
+      },
+      loop: false,
+      speed: 700,
+      navigation: {
+        nextEl: '.swiper-outer-next',
+        prevEl: '.swiper-outer-prev'
+      },
+      pagination: {
+        el: '.gallery-swiper-pagination',
+        type: 'fraction',
+      },
+      observer: true,
+      observeParents: true,
+    });
   }
 
   ngAfterViewInit() {
-    forkJoin(this.images.map(imgDir => imgDir.loaded)).subscribe(() => {
-      console.log('all images have been loaded');
-    });
-    setTimeout(function() {
-      new Swiper('.gallery-swiper-container', {
-        slidesPerView: 1,
-        direction: 'horizontal',
-        allowTouchMove: false,
-        lazy: {
-          loadPrevNext: true,
-        },
-        loop: false,
-        speed: 700,
-        navigation: {
-          nextEl: '.swiper-outer-next',
-          prevEl: '.swiper-outer-prev'
-        },
-        pagination: {
-          el: '.gallery-swiper-pagination',
-          type: 'fraction',
-        },
+    this.subscription = this.images.changes.subscribe(res => {
+      forkJoin(this.images.map(imgDir => imgDir.loaded)).subscribe(() => {
+        this.imagesLoaded();
       });
-    }, 3000);
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   showEventPictures(e) {
