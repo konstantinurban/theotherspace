@@ -47,8 +47,22 @@
 		font-size: 13px;
 	}
 
+	.gallery__date {
+		font-size: 13px;
+		border: solid 1px #fff;
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: 0px auto;
+		top: 10px;
+		max-width: 280px;
+		background: $color-p;
+		z-index: 2;
+		padding: 3px;
+	}
+
 	.gallery__artist {
-		margin-top: 5px;
+		margin-top: 10px;
 		text-transform: uppercase;
 	}
 
@@ -71,11 +85,13 @@
 	/* Accordion Open | Expand Gallery */
 	.gallery__description,
 	.gallery__heading,
+	.gallery__date,
 	.gallery__subheading {
-		height: 0;
 		opacity: 0;
+		height: 0;
+		margin-left: auto;
+		margin-right: auto;
 		visibility: hidden;
-		margin: 0 auto;
 		transition: opacity 0.4s 0.3s;
 	}
 
@@ -83,11 +99,12 @@
 		height: 100%;
 		padding-top: 15%;
 
+		.gallery__date,
 		.gallery__description,
 		.gallery__heading,
 		.gallery__subheading {
-			height: auto;
 			opacity: 1;
+			height: auto;
 			visibility: visible;
 		}
 
@@ -145,8 +162,6 @@
 	}
 
 	.gallery__heading {
-		margin-top: 3%;
-		margin-bottom: 3%;
 		font-size: 25px;
 		text-transform: uppercase;
 	}
@@ -159,12 +174,23 @@
 			display: none;
 		}
 
+		.gallery__date {
+			font-size: 16px;
+		}
+
 		.gallery__heading {
+			margin-top: 3%;
+			margin-bottom: 3%;
 			margin-top: 10%;
 			font-size: 40px;
 		}
 
+		.gallery__artist {
+			margin-top: 5px;
+		}
+
 		.gallery__description {
+			max-width: 72%;
 			margin-bottom: auto;
 		}
 
@@ -178,6 +204,7 @@
 			}
 		}
 
+		.gallery__date,
 		.gallery__description,
 		.gallery__heading,
 		.gallery__subheading {
